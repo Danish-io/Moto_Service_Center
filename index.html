@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MOTO Bike Service Center in Siwan, Bihar offers expert bike repair, maintenance, and custom modifications. Book your service today!">
+    <meta name="keywords" content="bike service Siwan, two-wheeler repair Bihar, MOTO bike service, bike maintenance">
+    <title>MOTO Bike Service Center</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #ffffff; /* White background */
+            color: #fe0000; /* Bright red text for body */
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        /* Headline styles */
+        h1, h2, h3 {
+            color: #1a1a1a; /* Black headlines */
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.5); /* Subtle white shadow for contrast */
+        }
+        .light-mode h1, .light-mode h2, .light-mode h3 {
+            text-shadow: none; /* Remove shadow in light mode */
+        }
+        /* Fade-in animation for sections */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Jumping effect */
+        .jump-on-hover:hover, .jump-on-scroll {
+            animation: jump 0.5s ease infinite;
+        }
+        @keyframes jump {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        /* Card hover effect with glowing shadow */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            border: 2px solid #fe0000; /* Bright red border */
+            box-shadow: 0 4px 15px rgba(254, 0, 0, 0.3);
+            background: #ffffff; /* White card background */
+        }
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.5); /* Darker red shadow on hover */
+            border-color: #dc2626; /* Darker red border on hover */
+        }
+        /* Button hover effect with glow */
+        .btn-hover {
+            transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fe0000; /* Bright red button */
+            color: #ffffff; /* White button text */
+            box-shadow: 0 4px 15px rgba(254, 0, 0, 0.3);
+        }
+        .btn-hover:hover {
+            transform: translateY(-3px);
+            background-color: #dc2626; /* Darker red on hover */
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.5);
+        }
+        /* Input focus effect with glowing border */
+        .input-focus {
+            transition: all 0.3s ease;
+            border: 2px solid #fe0000;
+            box-shadow: 0 2px 10px rgba(254, 0, 0, 0.1);
+            background-color: #ffffff;
+            color: #fe0000;
+        }
+        .input-focus:focus {
+            border-color: #dc2626;
+            box-shadow: 0 0 15px rgba(220, 38, 38, 0.4);
+        }
+        /* Section heading underline animation */
+        .heading-underline::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, #fe0000, #dc2626);
+            margin: 10px auto;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .heading-underline:hover::after {
+            width: 100px;
+        }
+        /* Form container shadow and border */
+        .form-container {
+            border: 3px solid #fe0000;
+            box-shadow: 0 10px 30px rgba(254, 0, 0, 0.3);
+            background: #ffffff;
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        /* Decorative elements */
+        .section-border {
+            border-top: 4px solid #fe0000;
+            border-bottom: 4px solid #fe0000;
+            padding: 2rem 0;
+        }
+        /* Sticky Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: #ffffff; /* White nav */
+            transition: background-color 0.3s ease;
+        }
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 60;
+        }
+        .hamburger span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #fe0000; /* Bright red lines */
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+        .hamburger span:nth-child(2) {
+            top: 8px;
+        }
+        .hamburger span:nth-child(3) {
+            top: 16px;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 8px;
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 8px;
+        }
+        .hamburger:hover span {
+            background: #dc2626; /* Darker red on hover */
+        }
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95); /* White mobile menu */
+            backdrop-filter: blur(8px);
+            z-index: 50;
+            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            transform: translateX(-100%);
+        }
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        .mobile-menu ul {
+            list-style: none;
+            padding: 4rem 2rem;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .mobile-menu ul li {
+            padding: 1rem 0;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all 0.3s ease;
+        }
+        .mobile-menu.active ul li {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .mobile-menu ul li:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-menu ul li:nth-child(2) { transition-delay: 0.2s; }
+        .mobile-menu ul li:nth-child(3) { transition-delay: 0.3s; }
+        .mobile-menu ul li:nth-child(4) { transition-delay: 0.4s; }
+        .mobile-menu ul li:nth-child(5) { transition-delay: 0.5s; }
+        .mobile-menu ul li:nth-child(6) { transition-delay: 0.6s; }
+        .mobile-menu ul li a {
+            color: #fe0000; /* Bright red text */
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .mobile-menu ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #dc2626; /* Darker red underline */
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        .mobile-menu ul li a:hover::after {
+            width: 100%;
+        }
+        .mobile-menu ul li a:hover {
+            color: #dc2626; /* Darker red on hover */
+        }
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            #home h1 {
+                font-size: 2rem;
+            }
+            .mobile-menu ul li a {
+                font-size: 1.5rem;
+            }
+        }
+        /* Social Media Icons */
+        .social-icons a {
+            color: #fe0000; /* Bright red icons */
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #dc2626; /* Darker red on hover */
+            transform: scale(1.2);
+        }
+        /* Shiny Gradient Text for Home Section */
+        .shiny-text {
+            background: linear-gradient(45deg, #fe0000, #dc2626, #fe0000); /* Bright red to darker red gradient */
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shine 3s ease-in-out infinite;
+            text-shadow: 0 0 10px rgba(254, 0, 0, 0.7), 0 0 20px rgba(220, 38, 38, 0.5);
+            font-weight: 900;
+        }
+        @keyframes shine {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        /* Automatic Sliding Testimonials */
+        .testimonials-slider {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .testimonial-item {
+            min-width: 100%;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+            animation: slide 10s infinite;
+            background-color: #ffffff; /* White for testimonials */
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33.33% { transform: translateX(-100%); }
+            66.66% { transform: translateX(-200%); }
+            100% { transform: translateX(0); }
+        }
+        /* Light Mode Styles */
+        .light-mode {
+            background-color: #ffffff; /* White background */
+            color: #fe0000; /* Bright red text */
+        }
+        .light-mode .form-container {
+            background: #ffffff;
+            border-color: #fe0000;
+            box-shadow: 0 10px 30px rgba(254, 0, 0, 0.2);
+        }
+        .light-mode .card-hover {
+            background: #ffffff;
+            border-color: #fe0000;
+        }
+        .light-mode .card-hover:hover {
+            border-color: #dc2626;
+        }
+        .light-mode .input-focus {
+            border-color: #fe0000;
+            background-color: #ffffff;
+        }
+        .light-mode .input-focus:focus {
+            border-color: #dc2626;
+        }
+        .light-mode .testimonial-item {
+            background-color: #ffffff;
+        }
+        .light-mode nav {
+            background-color: #ffffff; /* White nav in light mode */
+        }
+        .light-mode .social-icons a {
+            color: #fe0000;
+        }
+        .light-mode .social-icons a:hover {
+            color: #dc2626;
+        }
+        /* Chat Widget Styles */
+        #chat-widget {
+            width: 300px;
+            max-height: 400px;
+            background-color: #ffffff;
+        }
+        #chat-messages {
+            background: #f5f5f5; /* Light gray for contrast */
+            border-radius: 8px;
+            padding: 10px;
+            color: #fe0000;
+        }
+        #chat-messages p {
+            margin: 5px 0;
+        }
+        /* Modal Styles */
+        #tracking-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            color: #fe0000;
+        }
+        .modal-content button {
+            background-color: #fe0000;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .modal-content button:hover {
+            background-color: #dc2626;
+        }
+        /* Home Section Background */
+        #home {
+            background-image: url('moto-logo.jpg'); /* Add the image as background */
+            background-size: cover; /* Ensure the image covers the entire section */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent image repetition */
+        }
+        /* Advanced Checklist Table Styles */
+        #checklist {
+            padding: 2rem;
+            background-color: #ffffff;
+            color: #000000;
+        }
+        .checklist-table-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .checklist-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #ffffff;
+        }
+        .checklist-table th, .checklist-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+            transition: background-color 0.3s ease;
+        }
+        .checklist-table th {
+            background: #fe0000;
+            color: #ffffff;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            text-transform: uppercase;
+        }
+        .checklist-table td {
+            color: #000000;
+            position: relative;
+        }
+        .checklist-table tr:hover td {
+            background-color: #f5f5f5;
+        }
+        .checklist-item::before {
+            content: "✓";
+            color: #fe0000;
+            margin-right: 0.5rem;
+        }
+        .logo-section {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .logo-section h2 {
+            font-size: 2rem;
+            color: #fe0000;
+            margin-bottom: 0.5rem;
+        }
+        .logo-section p {
+            font-size: 1rem;
+            color: #000000;
+        }
+        /* Expandable Row Styles */
+        .checklist-table tr.expandable {
+            cursor: pointer;
+        }
+        .checklist-table tr.expandable:hover td {
+            background-color: #fee2e2;
+        }
+        .checklist-table .details {
+            display: none;
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-top: 1px solid #e5e7eb;
+        }
+        .checklist-table .details p {
+            margin: 0.5rem 0;
+            color: #666;
+        }
+        /* Responsive Table */
+        @media (max-width: 768px) {
+            .checklist-table th, .checklist-table td {
+                font-size: 0.875rem;
+                padding: 0.75rem;
+            }
+            .checklist-table-container {
+                overflow-x: auto;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hamburger Menu Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked
+            const menuLinks = document.querySelectorAll('.mobile-menu ul li a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+
+            // Back to Top Button
+            window.addEventListener('scroll', () => {
+                const backToTop = document.getElementById('back-to-top');
+                backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+            });
+            document.getElementById('back-to-top').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+           
+
+            // Chat Widget
+            const openChat = document.getElementById('open-chat');
+            const chatWidget = document.getElementById('chat-widget');
+            const closeChat = document.getElementById('close-chat');
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+
+            openChat.addEventListener('click', () => {
+                openChat.style.display = 'none';
+                chatWidget.style.display = 'block';
+                chatMessages.innerHTML += '<p class="text-sm">Hello! How can we help you today?</p>';
+            });
+
+            closeChat.addEventListener('click', () => {
+                chatWidget.style.display = 'none';
+                openChat.style.display = 'block';
+            });
+
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && chatInput.value.trim()) {
+                    chatMessages.innerHTML += `<p class="text-right text-sm bg-red-600 text-white p-2 rounded-md my-1">${chatInput.value}</p>`;
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    chatInput.value = '';
+                }
+            });
+
+            // Tracking ID Generation and Display
+            const preBookForm = document.getElementById('pre-book-form');
+            const trackingModal = document.getElementById('tracking-modal');
+            const trackingIdDisplay = document.getElementById('tracking-id');
+            const closeModal = document.getElementById('close-modal');
+
+            preBookForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const trackingId = `MOTO-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+                const email = preBookForm.querySelector('input[type="email"]').value;
+                const booking = {
+                    id: trackingId,
+                    status: 'In Progress',
+                    date: new Date().toISOString(),
+                    email: email
+                };
+                localStorage.setItem(trackingId, JSON.stringify(booking));
+                console.log(`Sending tracking ID ${trackingId} to ${email}`);
+                trackingIdDisplay.textContent = trackingId;
+                trackingModal.style.display = 'flex';
+                preBookForm.reset();
+            });
+
+            closeModal.addEventListener('click', () => {
+                trackingModal.style.display = 'none';
+            });
+
+            // Track Service Status
+            const trackForm = document.getElementById('track-service-form');
+            const serviceStatus = document.getElementById('service-status');
+
+            trackForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const trackingIdInput = document.getElementById('tracking-id-input').value.trim();
+                const booking = JSON.parse(localStorage.getItem(trackingIdInput));
+                if (booking) {
+                    serviceStatus.textContent = `Status: ${booking.status} (Booked on ${new Date(booking.date).toLocaleDateString()})`;
+                } else {
+                    serviceStatus.textContent = 'Invalid Tracking ID. Please try again.';
+                }
+            });
+
+            // Intersection Observer for jump-on-scroll effect
+            const jumpElements = document.querySelectorAll('.jump-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('jump-on-scroll');
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            jumpElements.forEach(element => observer.observe(element));
+
+            // Expandable Rows for Checklist Table
+            const expandableRows = document.querySelectorAll('.expandable');
+            expandableRows.forEach(row => {
+                row.addEventListener('click', () => {
+                    const detailsRow = row.nextElementSibling;
+                    if (detailsRow && detailsRow.classList.contains('details')) {
+                        const isVisible = detailsRow.style.display === 'table-row';
+                        detailsRow.style.display = isVisible ? 'none' : 'table-row';
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body class="font-sans">
+  
+    <!-- Navigation -->
+    <nav class="text-red-600 p-4 flex justify-between items-center shadow-lg relative">
+        <a href="#home">
+            <img src="logo.ico" alt="MOTO Bike Service Center Logo" class="h-10 w-auto animate-pulse jump-on-scroll">
+        </a>
+        <div class="space-x-4 nav-links md:flex hidden">
+            <a href="#home" class="hover:text-red-700 transition duration-300 relative group jump-on-hover text-red-600">
+                Home
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#about" class="hover:text-red-700 transition duration-300 relative group jump-on-hover text-red-600">
+                About
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#services" class="hover:text-red-700 transition duration-300 relative group jump-on-hover text-red-600">
+                Services
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#gallery" class="hover:text-red-700 transition duration-300 relative group jump-on-hover text-red-600">
+                Gallery
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#contact" class="hover:text-red-700 transition duration-300 relative group jump-on-hover text-red-600">
+                Contact
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#prebook" class="hover:text-red-700 transition duration-300 relative group jump-on-hover text-red-600">
+                Pre-Booking
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+            <a href="#checklist" class="hover:text-red-700 transition duration-300 relative group jump-on-hover text-red-600">
+                Checklist
+                <span class="absolute left-0 bottom-0 w-0 h-0.5 bg-red-700 transition-all duration-300 group-hover:w-full"></span>
+            </a>
+        </div>
+        <div class="hamburger md:hidden">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#prebook">Pre-Booking</a></li>
+                <li><a href="#checklist">Checklist</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center p-4 fade-in section-border">
+        <h1 class="text-4xl md:text-6xl mb-4 shiny-text jump-on-scroll">
+            MOTO - Bike Service Center.<br>Ride Strong, Ride Smooth
+        </h1>
+        <a href="#prebook">
+            <button class="text-white px-6 py-3 rounded-full btn-hover jump-on-hover">
+                Pre-Book Service
+            </button>
+        </a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 px-4 fade-in section-border">
+        <h2 class="text-3xl font-bold text-center mb-8 animate-pulse heading-underline jump-on-scroll">OUR SERVICES</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div class="p-6 rounded-lg card-hover jump-on-hover">
+                <h3 class="text-xl font-semibold mb-2">FULL BIKE SERVICE</h3>
+                <p>Complete health check, oil change, brake check, chain lubrication.</p>
+            </div>
+            <div class="p-6 rounded-lg card-hover jump-on-hover">
+                <h3 class="text-xl font-semibold mb-2">TECHNICAL PROBLEMS</h3>
+                <p>Fix any engine, clutch, gear, or battery technical issues quickly.</p>
+            </div>
+            <div class="p-6 rounded-lg card-hover jump-on-hover">
+                <h3 class="text-xl font-semibold mb-2">BRAKE & TYRE</h3>
+                <p>New brake pads, disc checks, tyre fitting and pressure check.</p>
+            </div>
+            <div class="p-6 rounded-lg card-hover jump-on-hover">
+                <h3 class="text-xl font-semibold mb-2">ENGINE REPAIR</h3>
+                <p>Minor/major engine repair, tuning, bore cleaning.</p>
+            </div>
+            <div class="p-6 rounded-lg card-hover jump-on-hover">
+                <h3 class="text-xl font-semibold mb-2">BATTERY CHECK</h3>
+                <p>Battery charging, replacement with warranty support.</p>
+            </div>
+            <div class="p-6 rounded-lg card-hover jump-on-hover">
+                <h3 class="text-xl font-semibold mb-2">CUSTOM MODIFICATIONS</h3>
+                <p>Custom paint jobs, exhaust, body kits, and accessories fitting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pre-Book Section -->
+<section id="prebook" class="py-16 px-4 fade-in section-border">
+    <h2 class="text-3xl font-bold text-center mb-8 animate-pulse heading-underline jump-on-scroll">PRE-BOOK YOUR BIKE SERVICE</h2>
+    <form id="pre-book-form" action="https://api.web3forms.com/submit" method="POST" class="max-w-lg mx-auto p-6 rounded-lg form-container">
+        <!-- Replace with your Access Key -->
+        <input type="hidden" name="access_key" value="3153b764-130f-4a8e-ae4a-a396efbcff97">
+        
+        <!-- Form Inputs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" name="full_name" placeholder="FULL NAME" class="p-3 rounded-md w-full input-focus" required>
+            <input type="email" name="email" placeholder="Email" class="p-3 rounded-md w-full input-focus" required>
+            <input type="tel" name="phone_number" placeholder="PHONE NUMBER" class="p-3 rounded-md w-full input-focus" required>
+            <input type="text" name="bike_model" placeholder="BIKE MODEL" class="p-3 rounded-md w-full input-focus" required>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            <select name="service" class="p-3 rounded-md w-full input-focus" required>
+                <option value="">Select Service</option>
+                <option>Full Bike Service</option>
+                <option>Engine Repair</option>
+                <option>Technical Problems</option>
+                <option>Brake & Tyre</option>
+                <option>Battery Check</option>
+                <option>Custom Modification</option>
+            </select>
+            <input type="date" name="service_date" class="p-3 rounded-md w-full input-focus" required>
+        </div>
+        <textarea name="message" placeholder="ADDITIONAL MESSAGE (OPTIONAL)" class="p-3 rounded-md w-full mt-4 input-focus" rows="4"></textarea>
+        
+        <!-- Honeypot Spam Protection -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        
+        <!-- Submit Button -->
+        <button type="submit" class="text-white w-full py-3 rounded-md mt-4 btn-hover jump-on-hover">SUBMIT PRE-BOOKING</button>
+    </form>
+</section>
+
+    <!-- Tracking Modal -->
+    <div id="tracking-modal">
+        <div class="modal-content">
+            <h3 class="text-xl font-bold mb-2">Booking Successful!</h3>
+            <p>Your Tracking ID is:</p>
+            <p id="tracking-id" class="text-lg font-semibold text-red-600 mb-4"></p>
+            <p>Please save this ID or check your email for confirmation.</p>
+            <button id="close-modal" class="jump-on-hover">Close</button>
+        </div>
+    </div>
+
+    <!-- Service Status Tracker
+    <section id="track-service" class="py-16 px-4 fade-in section-border">
+        <h2 class="text-3xl font-bold text-center mb-8 animate-pulse heading-underline jump-on-scroll">TRACK YOUR SERVICE</h2>
+        <form id="track-service-form" class="max-w-lg mx-auto p-6 rounded-lg form-container">
+            <input id="tracking-id-input" type="text" placeholder="Enter Booking ID" class="p-3 rounded-md w-full mb-4 input-focus" required>
+            <button type="submit" class="text-white w-full py-3 rounded-md btn-hover jump-on-hover">Check Status</button>
+            <p class="mt-4 text-center text-gray-400">Status: <span id="service-status" class="font-semibold">Enter a Booking ID to see the status</span></p>
+        </form>
+    </section> -->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 px-4 fade-in section-border">
+        <h2 class="text-3xl font-bold text-center mb-8 animate-pulse heading-underline jump-on-scroll">OUR WORK GALLERY</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div class="p-2 rounded-lg card-hover jump-on-hover">
+                <div class="h-48 bg-gray-200 rounded-md flex items-center justify-center">Image Placeholder</div>
+            </div>
+            <div class="p-2 rounded-lg card-hover jump-on-hover">
+                <div class="h-48 bg-gray-200 rounded-md flex items-center justify-center">Image Placeholder</div>
+            </div>
+            <div class="p-2 rounded-lg card-hover jump-on-hover">
+                <div class="h-48 bg-gray-200 rounded-md flex items-center justify-center">Image Placeholder</div>
+            </div>
+        </div>
+        <div class="mt-12 text-center fade-in">
+            <h2 class="text-2xl font-bold mb-4 heading-underline jump-on-scroll">What Our Customers Say</h2>
+            <div class="testimonials-slider">
+                <div class="testimonial-item p-4 rounded-lg shadow-md">
+                    <p class="text-lg italic animate-pulse">"MOTO made my Royal Enfield feel brand new again!"</p>
+                    <p class="text-sm mt-2">- Rahul Sharma</p>
+                </div>
+                <div class="testimonial-item p-4 rounded-lg shadow-md">
+                    <p class="text-lg italic animate-pulse">"Excellent service and quick turnaround time!"</p>
+                    <p class="text-sm mt-2">- Priya Kapoor</p>
+                </div>
+                <div class="testimonial-item p-4 rounded-lg shadow-md">
+                    <p class="text-lg italic animate-pulse">"Highly recommend for custom modifications!"</p>
+                    <p class="text-sm mt-2">- Vikram Singh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist Section -->
+    <section id="checklist" class="py-16 px-4 fade-in section-border">
+        <h2 class="text-3xl font-bold text-center mb-8 animate-pulse heading-underline jump-on-scroll">SERVICE CHECKLIST</h2>
+        <div class="checklist-table-container">
+            <table class="checklist-table">
+                <thead>
+                    <tr>
+                        <th>Engine Transmission System</th>
+                        <th>Front and Rear Suspension System</th>
+                        <th>Fuel System</th>
+                        <th>General Services</th>
+                        <th>Electrical System</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="expandable">
+                        <td class="checklist-item">Air filter cleaning/replacement</td>
+                        <td class="checklist-item">Check socker and adjustment</td>
+                        <td class="checklist-item">Check fuel filter and replace</td>
+                        <td class="checklist-item">Water wash the vehicle before service</td>
+                        <td class="checklist-item">Check head and tail light</td>
+                    </tr>
+                    <tr class="details">
+                        <td colspan="5">
+                            <p><strong>Air Filter:</strong> Ensures optimal engine performance by removing dust and debris.</p>
+                            <p><strong>Socker Adjustment:</strong> Improves handling and ride comfort.</p>
+                            <p><strong>Fuel Filter:</strong> Prevents contaminants from entering the fuel system.</p>
+                            <p><strong>Water Wash:</strong> Cleans the vehicle to ensure a thorough inspection.</p>
+                            <p><strong>Lights:</strong> Ensures visibility and safety on the road.</p>
+                        </td>
+                    </tr>
+                    <tr class="expandable">
+                        <td class="checklist-item">Check for any vibrations</td>
+                        <td class="checklist-item">Check brake pads</td>
+                        <td class="checklist-item">Check mileage if required</td>
+                        <td class="checklist-item">Bike polish</td>
+                        <td class="checklist-item">Check all indicators</td>
+                    </tr>
+                    <tr class="details">
+                        <td colspan="5">
+                            <p><strong>Vibrations:</strong> Identifies potential mechanical issues.</p>
+                            <p><strong>Brake Pads:</strong> Ensures safe stopping power.</p>
+                            <p><strong>Mileage:</strong> Optimizes fuel efficiency.</p>
+                            <p><strong>Polish:</strong> Enhances the vehicle's appearance.</p>
+                            <p><strong>Indicators:</strong> Ensures proper signaling for safety.</p>
+                        </td>
+                    </tr>
+                    <tr class="expandable">
+                        <td class="checklist-item">Check all control cables</td>
+                        <td class="checklist-item">Check both the wheels for wobbling</td>
+                        <td class="checklist-item">Tank cleaning and water removing</td>
+                        <td class="checklist-item">Foam wash</td>
+                        <td class="checklist-item">Check battery terminal electrolyte level and charge</td>
+                    </tr>
+                    <tr class="details">
+                        <td colspan="5">
+                            <p><strong>Control Cables:</strong> Ensures smooth operation of throttle and brakes.</p>
+                            <p><strong>Wheel Wobbling:</strong> Prevents uneven wear and improves stability.</p>
+                            <p><strong>Tank Cleaning:</strong> Removes water to prevent corrosion.</p>
+                            <p><strong>Foam Wash:</strong> Provides a deep clean for better maintenance.</p>
+                            <p><strong>Battery:</strong> Ensures reliable starting and electrical performance.</p>
+                        </td>
+                    </tr>
+                    <tr class="expandable">
+                        <td class="checklist-item">Engine oil filter clean/replace</td>
+                        <td class="checklist-item">Check tire pressure</td>
+                        <td class="checklist-item">Check fuel lines for leakage</td>
+                        <td class="checklist-item">Clean the vehicle before delivery</td>
+                        <td class="checklist-item">Check the correct battery connections</td>
+                    </tr>
+                    <tr class="details">
+                        <td colspan="5">
+                            <p><strong>Oil Filter:</strong> Keeps engine oil clean for better performance.</p>
+                            <p><strong>Tire Pressure:</strong> Improves fuel efficiency and safety.</p>
+                            <p><strong>Fuel Lines:</strong> Prevents leaks that could lead to hazards.</p>
+                            <p><strong>Final Cleaning:</strong> Ensures the vehicle looks pristine on delivery.</p>
+                            <p><strong>Battery Connections:</strong> Prevents electrical failures.</p>
+                        </td>
+                    </tr>
+                    <tr class="expandable">
+                        <td class="checklist-item">Chain set clean, adjust and lubrication</td>
+                        <td class="checklist-item">Check steering bearing</td>
+                        <td></td>
+                        <td class="checklist-item">Test ride before delivery</td>
+                        <td class="checklist-item">Check and correct horn tuning</td>
+                    </tr>
+                    <tr class="details">
+                        <td colspan="5">
+                            <p><strong>Chain Maintenance:</strong> Reduces wear and ensures smooth power transfer.</p>
+                            <p><strong>Steering Bearing:</strong> Ensures smooth handling.</p>
+                            <p><strong>Test Ride:</strong> Verifies all systems are functioning correctly.</p>
+                            <p><strong>Horn Tuning:</strong> Ensures the horn is audible for safety.</p>
+                        </td>
+                    </tr>
+                    <tr class="expandable">
+                        <td class="checklist-item">Spark plug cleaning and gap adjustment</td>
+                        <td class="checklist-item">Check shock absorbers</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="details">
+                        <td colspan="5">
+                            <p><strong>Spark Plug:</strong> Improves ignition and engine efficiency.</p>
+                            <p><strong>Shock Absorbers:</strong> Enhances ride comfort and stability.</p>
+                        </td>
+                    </tr>
+                    <tr class="expandable">
+                        <td class="checklist-item">Check for smooth gear shifting</td>
+                        <td class="checklist-item">Check both wheel bearing play</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="details">
+                        <td colspan="5">
+                            <p><strong>Gear Shifting:</strong> Ensures seamless transitions for better riding.</p>
+                            <p><strong>Wheel Bearings:</strong> Reduces friction and improves wheel movement.</p>
+                        </td>
+                    </tr>
+                    <tr class="expandable">
+                        <td class="checklist-item">Drive chain adjustment and lubrication</td>
+                        <td class="checklist-item">Dish break oil top-up and replace</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="details">
+                        <td colspan="5">
+                            <p><strong>Drive Chain:</strong> Maintains proper tension for optimal performance.</p>
+                            <p><strong>Brake Oil:</strong> Ensures effective braking performance.</p>
+                        </td>
+                    </tr>
+                    <tr class="expandable">
+                        <td class="checklist-item">Check and adjust clutch</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="details">
+                        <td colspan="5">
+                            <p><strong>Clutch Adjustment:</strong> Ensures smooth engagement and disengagement.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="logo-section">
+                <h2>moto</h2>
+                <p>A SMART TWO WHEELER SERVICE POINT</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 px-4 fade-in section-border">
+        <h2 class="text-3xl font-bold text-center mb-8 animate-pulse heading-underline jump-on-scroll">FREQUENTLY ASKED QUESTIONS</h2>
+        <div class="max-w-3xl mx-auto">
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold mb-2">How long does a full bike service take?</h3>
+                <p>A full bike service typically takes 2-3 hours, depending on the condition of the bike.</p>
+            </div>
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold mb-2">Do you provide a warranty on repairs?</h3>
+                <p>Yes, we offer a 30-day warranty on all repairs and parts.</p>
+            </div>
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold mb-2">Can I book a service online?</h3>
+                <p>Absolutely! Use our Pre-Booking section to schedule your service.</p>
+            </div>
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold mb-2">What is the cost of services?</h3>
+                <p>Service costs vary based on the bike model and service type. Please contact us or visit for a detailed quote.</p>
+            </div>
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold mb-2">What payment methods do you accept?</h3>
+                <p>We accept cash, UPI, credit/debit cards, and online bank transfers.</p>
+            </div>
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold mb-2">Is there a guarantee on custom modifications?</h3>
+                <p>Yes, we provide a 15-day guarantee on custom modifications for workmanship and parts.</p>
+            </div>
+            <div class="mb-4">
+                <h3 class="text-xl font-semibold mb-2">Can I cancel or reschedule my appointment?</h3>
+                <p>Yes, you can cancel or reschedule up to 24 hours before the appointment by contacting us at our support number.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Find Us Section -->
+    <section id="findus" class="py-16 px-4 fade-in section-border">
+        <h2 class="text-3xl font-bold text-center mb-8 animate-pulse heading-underline jump-on-scroll">FIND US HERE</h2>
+        <p class="text-center mb-4 p-2 rounded-md shadow-md" style="background-color: #ffffff;">MOTO - A Smart Two Wheeler Service Point<br>6942+WQO, Hussainaganj Road, Siwan Bypass, Bihar 841226</p>
+        <div class="max-w-3xl mx-auto rounded-lg card-hover jump-on-hover">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.675155261321!2d84.3511138!3d26.2072435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3992f9e0a9a73309%3A0x86b43b06f210d7ef!2sMOTO%20A%20SMART%20TWO%20WHEELER%20SERVICE%20POINT!5e0!3m2!1sen!2sin!4v1746712362843!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+   <!-- Contact Section -->
+<section id="contact" class="py-16 px-4 fade-in section-border">
+    <h2 class="text-3xl font-bold text-center mb-8 animate-pulse heading-underline jump-on-scroll">CONTACT US</h2>
+    <div class="max-w-lg mx-auto p-6 rounded-lg form-container">
+        <form action="https://api.web3forms.com/submit" method="POST">
+            <!-- Replace with your Access Key -->
+            <input type="hidden" name="access_key" value="3153b764-130f-4a8e-ae4a-a396efbcff97">
+            
+            <!-- Form Inputs -->
+            <input type="text" name="name" placeholder="YOUR NAME" class="p-3 rounded-md w-full mb-4 input-focus" required>
+            <input type="email" name="email" placeholder="YOUR EMAIL" class="p-3 rounded-md w-full mb-4 input-focus" required>
+            <textarea name="message" placeholder="YOUR MESSAGE" class="p-3 rounded-md w-full mb-4 input-focus" rows="4" required></textarea>
+            
+            <!-- Honeypot Spam Protection -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            
+            <!-- Submit Button -->
+            <button type="submit" class="text-white w-full py-3 rounded-md btn-hover jump-on-hover">SUBMIT FORM</button>
+        </form>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="text-red-600 text-center p-4 fade-in shadow-lg" style="background-color: #ffffff;">
+        <div class="social-icons mt-6 flex justify-center">
+            <a href="https://www.facebook.com/motobikeservice" target="_blank" class="jump-on-hover">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.twitter.com/motobikeservice" target="_blank" class="jump-on-hover">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/motobikeservice" target="_blank" class="jump-on-hover">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/motobikeservice" target="_blank" class="jump-on-hover">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+        <p>© 2025 MOTO BIKE SERVICE CENTER. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-5 right-5 text-white p-3 rounded-full shadow-lg hidden btn-hover jump-on-hover">↑</button>
+
+    <!-- Chat Widget
+    <div id="chat-widget" class="fixed bottom-5 right-5 text-red-600 p-4 rounded-lg shadow-lg hidden">
+        <div class="flex justify-between items-center">
+            <h3 class="font-bold">Chat with Us!</h3>
+            <button id="close-chat" class="text-red-600">×</button>
+        </div>
+        <div id="chat-messages" class="mt-2 h-40 overflow-y-auto"></div>
+        <input id="chat-input" type="text" placeholder="Type a message..." class="mt-2 w-full p-2 rounded-md input-focus">
+    </div>
+    <button id="open-chat" class="fixed bottom-5 right-5 text-white p-3 rounded-full shadow-lg btn-hover jump-on-hover">💬</button>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93900d18fdeabce6',t:'MTc0NjExMDYwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html> -->
